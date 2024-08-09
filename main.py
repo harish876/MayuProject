@@ -3,6 +3,8 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 from rich.text import Text
+from rich.align import Align
+import pyfiglet
 
 console = Console()
 
@@ -10,26 +12,25 @@ console = Console()
 def display_landing_page():
     # Title and team members info
     landing_text = Text()
-    landing_text.append("Hospital Management System\n\n", style="bold")
+    ascii_art = pyfiglet.figlet_format(
+        "Health Pilot", font="starwars")
+    landing_text.append(ascii_art)
+    landing_text.append(
+        "A Modern Hospital Management System\n\n")
     landing_text.append("Team Members:\n\n", style="bold cyan")
-    landing_text.append("1. Dr. Alice Smith - Lead Developer\n", style="white")
+    landing_text.append(
+        "1. Mayuri K - Lead Developer\n", style="white")
     landing_text.append("2. John Doe - Backend Engineer\n", style="white")
     landing_text.append("3. Jane Roe - Frontend Designer\n", style="white")
-    landing_text.append("4. Emily Davis - Project Manager\n", style="white")
+    landing_text.append(
+        "4. Emily Davis - Project Manager\n", style="white")
 
-    # Create a panel for the landing page
-    landing_panel = Panel(
-        landing_text,
-        title="Welcome",
-        title_align="center",
-        border_style="bold magenta",
-        padding=(1, 2),
-        expand=True,
-        subtitle_align='center'
-    )
+    landing_panel = Align.center(
+        landing_text, vertical="middle", style="bold")
 
     # Display the panel
-    console.print(landing_panel)
+    screen = console.screen()
+    screen.update(landing_panel)
 
     # Prompt to proceed
     console.print(
@@ -41,7 +42,7 @@ def display_main_menu():
     # Create a table for the menu
     console.clear()
     table = Table(title="[bold]Hospital Management System",
-                  title_justify="center", padding=(1, 2))
+                  title_justify="center", box=None, padding=(1, 2))
     table.add_column("Option", justify="center", style="cyan", no_wrap=True)
     table.add_column("Description", style="magenta")
 

@@ -1,0 +1,2 @@
+{"time":"2024-08-09T18:08:09.544148+05:30","level":"INFO","source":{"function":"main.main","file":"/Users/harishgokul/HypeFX/test.go","line":57},"msg":"CLI Initialization done. Build tag is test"}
+{"time":"2024-08-09T18:08:09.544648+05:30","level":"DEBUG","source":{"function":"github.com/harish876/hypefx/internal/cli/commands/version.Welcome","file":"/Users/harishgokul/HypeFX/internal/cli/commands/version/command.go","line":18},"msg":"welcome","version":true}
